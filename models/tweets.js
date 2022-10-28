@@ -11,6 +11,12 @@ mongoose.connect('mongodb+srv://jaylawrence:7sdM0DWZeln5Ufb1@movieapp.qqetypl.mo
 const tweetSchema = mongoose.Schema({
     tweet: String,
     username: String,
+    comment: [
+        {
+            comment_author: String,
+            comment: String,
+        }
+    ]
 })
 
 module.exports = mongoose.model('Tweet', tweetSchema); 

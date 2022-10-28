@@ -27,6 +27,16 @@ app.post('/tweets', async (req, res) => {
     res.redirect('/tweets');
 })
 
+// Add comment
+app.post('/comment/:id', async (req, res) => {
+    const { id } = req.params;
+    const { comment_author, comment } = req.body;
+    const tweet = await Tweet.findById(id);
+    tweet.comment.push({ comment_author: comment_author, comment: comment });
+    await Tweet.findByIdAndUpdate(id, tweet, { new: true });
+    res.redirect(`/tweets/${id}`);
+})
+
 // Fetch all tweets
 app.get('/tweets', async (req, res) => {
     const tweets = await Tweet.find();

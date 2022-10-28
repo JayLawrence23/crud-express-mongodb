@@ -10,10 +10,28 @@
     <h1>Tweet ID: <%= tweet.id %> </h1>
     <p><%= tweet.tweet %> - <i><%= tweet.username %> </i> </p>
 
+    <h4>Comments:</h4>
+    <% for(let t of tweet.comment) { %>
+        <li><%= t.comment_author %> - <strong><%= t.comment %> </strong> </li>
+    <% }%> 
+    <p>Add Comment</p>
+    <form action="/comment/<%= tweet.id %>" method="post">
+        <section>
+            <label for="comment_author">Enter for username:</label>
+            <input type="text" name="comment_author">
+        </section>
+        <section>
+            <label for="comment">Add Comment:</label>
+            <input type="text" name="comment">
+        </section>
+        <button>Comment</button>
+    </form>
+    <br>
     <a href="/tweets/<%= tweet.id %>/edit ">Edit Tweet</a> <br>
     <a href="/tweets/new">Tweet again</a> <br>
     <a href="/tweets">View Tweets</a>
 
+    <br>
     <form action="/tweets/<%= tweet.id %>?_method=DELETE" method="post">
         <button>Delete</button>
     </form>
