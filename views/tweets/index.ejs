@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tweets</title>
+</head>
+<body>
+    <h1>Tweets</h1>
+    <ul>
+        <% for(let t of tweets) { %>
+            <li><%= t.username %> - <strong><%= t.tweet %> </strong> </li>
+            <a href="/tweets/<%= t.id %> ">See more deets</a>
+            <a href="/tweets/<%= t.id %>/edit ">Edit Tweet</a>
+        <% } %> 
+    </ul>
+    <a href="/tweets/new">New Tweet</a>
+</body>
+</html>
