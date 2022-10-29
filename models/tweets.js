@@ -9,12 +9,12 @@ mongoose.connect('mongodb+srv://jaylawrence:7sdM0DWZeln5Ufb1@movieapp.qqetypl.mo
 })
 
 const tweetSchema = mongoose.Schema({
-    tweet: String,
-    username: String,
+    tweet: { type: String, required: true },
+    username: { type: String, required: true },
     comment: [
         {
-            comment_author: String,
-            comment: String,
+            comment_author: { type: String, required: true },
+            comment: { type: String, required: true },
         }
     ]
 })
