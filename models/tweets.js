@@ -13,8 +13,8 @@ const tweetSchema = mongoose.Schema({
     username: { type: String, required: true },
     comment: [
         {
-            comment_author: { type: String, required: true },
-            comment: { type: String, required: true },
+            comment_author: { type: String },
+            comment: { type: String },
         }
     ]
 })
